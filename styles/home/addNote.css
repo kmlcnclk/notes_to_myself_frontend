@@ -1,0 +1,13 @@
+#addNote {
+  /* & .ant-form-item{ */
+    /* @apply !h-[70px]; */
+  /* } */
+
+  & .ant-row {
+    @apply !flex-col;
+  }
+  
+  & .ant-col {
+    @apply !justify-start !flex;
+  }
+}
