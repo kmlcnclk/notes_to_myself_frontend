@@ -7,6 +7,8 @@ import {
   addAccessTokenToLocal,
   deleteAccessTokenFromLocal,
 } from '@/localStorage/accessToken.storage';
+import { useDispatch } from 'react-redux';
+import { assignUserFirstName } from '../../src/slicers/firstName.slice';
 
 type RegisterFormValuesType = {
   firstName: string;
@@ -22,6 +24,8 @@ type RegisterProps = {
 const RegisterComponent: React.FC<RegisterProps> = ({
   router,
 }: RegisterProps) => {
+  const dispatch = useDispatch();
+
   const onFinish = (values: RegisterFormValuesType) => {
     axios
       .post('http://localhost:5000/user/register', values)
@@ -35,9 +39,10 @@ const RegisterComponent: React.FC<RegisterProps> = ({
             rtl: false,
             pauseOnHover: false,
           });
-          router.push('/');
+          dispatch(assignUserFirstName(response.data.user.firstName));
           deleteAccessTokenFromLocal();
           addAccessTokenToLocal(response.data.access_token);
+          router.push('/');
         }
       })
       .catch(function (error: any) {

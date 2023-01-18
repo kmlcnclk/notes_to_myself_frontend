@@ -92,7 +92,7 @@ function AddNoteComponent() {
         getContainer={() => addNote.current}
         title="Add Note"
         placement="left"
-        width={500}
+        width={320}
         onClose={onClose}
         open={open}
         extra={

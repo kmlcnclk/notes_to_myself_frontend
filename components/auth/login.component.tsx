@@ -3,7 +3,12 @@ import { Button, Form, Input } from 'antd';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import { NextRouter } from 'next/router';
-import { addAccessTokenToLocal, deleteAccessTokenFromLocal } from '@/localStorage/accessToken.storage';
+import {
+  addAccessTokenToLocal,
+  deleteAccessTokenFromLocal,
+} from '@/localStorage/accessToken.storage';
+import { useDispatch } from 'react-redux';
+import { assignUserFirstName } from '../../src/slicers/firstName.slice';
 
 type LoginFormValuesType = {
   email: string;
@@ -15,6 +20,8 @@ type LoginProps = {
 };
 
 const LoginComponent: React.FC<LoginProps> = ({ router }: LoginProps) => {
+  const dispatch = useDispatch();
+
   const onFinish = (values: LoginFormValuesType) => {
     axios
       .post('http://localhost:5000/user/login', values)
@@ -28,9 +35,10 @@ const LoginComponent: React.FC<LoginProps> = ({ router }: LoginProps) => {
             rtl: false,
             pauseOnHover: false,
           });
-          router.push('/');
-          deleteAccessTokenFromLocal()
+          dispatch(assignUserFirstName(response.data.user.firstName));
+          deleteAccessTokenFromLocal();
           addAccessTokenToLocal(response.data.access_token);
+          router.push('/');
         }
       })
       .catch(function (error: any) {

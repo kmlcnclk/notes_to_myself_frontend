@@ -42,9 +42,6 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
 
   const onClose = () => {
     setOpen(false);
-    setTitle('');
-    setContent('');
-    setIsCompleted(false);
   };
 
   const onFinish = (values: AddNoteFormValuesType) => {
@@ -68,7 +65,7 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
             rtl: false,
             pauseOnHover: false,
           });
-          setOpen(false);
+          onClose();
         }
       })
       .catch(function (error: any) {
@@ -92,7 +89,7 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
           <div className="mt-6">
             <p>{content}</p>
           </div>
-          <div className="bg-blue-500 py-3 px-5 rounded-2xl text-white shadow-lg">
+          <div className="bg-blue-500 max-sm:text-xs max-sm:py-2 max-sm:px-3 py-3 px-5 rounded-2xl text-white shadow-lg">
             {isCompleted ? 'It is completed' : 'It is not completed'}
           </div>
         </div>
@@ -102,7 +99,7 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
             getContainer={() => addNote.current}
             title="Add Note"
             placement="left"
-            width={500}
+            width={320}
             onClose={onClose}
             open={open}
             extra={
