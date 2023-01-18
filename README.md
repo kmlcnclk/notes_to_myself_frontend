@@ -11,6 +11,9 @@
 * Ant Design
 * React Toastify
 * Post CSS
+* Next Font
+* React Redux
+* reduxjs/toolkit
 
 
 #### [You can click here to see the Backend of this project](https://github.com/kmlcnclk/notes_to_myself_backend)
