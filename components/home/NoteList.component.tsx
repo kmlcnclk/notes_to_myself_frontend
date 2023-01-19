@@ -36,9 +36,27 @@ function NoteListComponent() {
       <ToastContainer />
       {data[0] ? (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 2xl:gap-8 mx-6">
-          {data?.map((d: any) => (
-            <NoteComponent key={d?._id} d={d} />
-          ))}
+          <div className="grid grid-cols-1 gap-6">
+            {data?.map((d: any, i: number) => {
+              if (i % 3 == 0) {
+                return <NoteComponent key={d?._id} d={d} />;
+              }
+            })}
+          </div>
+          <div className="grid grid-cols-1 gap-6">
+            {data?.map((d: any, i: number) => {
+              if (i % 3 == 1) {
+                return <NoteComponent key={d?._id} d={d} />;
+              }
+            })}
+          </div>
+          <div className="grid grid-cols-1 gap-6">
+            {data?.map((d: any, i: number) => {
+              if (i % 3 == 2) {
+                return <NoteComponent key={d?._id} d={d} />;
+              }
+            })}
+          </div>
         </div>
       ) : (
         <div

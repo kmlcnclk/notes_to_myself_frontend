@@ -84,9 +84,9 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
     <div>
       <ToastContainer />
       <div className="bg-gray-200 p-7 rounded-xl shadow-xl flex justify-between">
-        <div>
-          <h5 className="font-semibold">{title}</h5>
-          <div className="mt-6">
+        <div className='pr-2'>
+          <h5 className="font-semibold break-all">{title}</h5>
+          <div className="mt-6 break-all">
             <p>{content}</p>
           </div>
           <div className="bg-blue-500 max-sm:text-xs max-sm:py-2 max-sm:px-3 py-3 px-5 rounded-2xl text-white shadow-lg">
@@ -94,7 +94,7 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
           </div>
         </div>
         <div>
-          <EditFilled onClick={showDrawer} />
+          <EditFilled  onClick={showDrawer} />
           <Drawer
             getContainer={() => addNote.current}
             title="Add Note"
