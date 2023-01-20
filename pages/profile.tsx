@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { assignUser } from '@/src/slicers/user.slice';
 import { useRouter } from 'next/router';
 import { toast, ToastContainer } from 'react-toastify';
+import Header from '@/components/Header.component';
+import MenuComponent from '@/components/home/Menu.component';
 
 function Profile() {
   const dispatch = useDispatch();
@@ -40,7 +42,12 @@ function Profile() {
   return (
     <div>
       <ToastContainer />
-      {isUserAvailable && <ProfileComponent />}
+      {isUserAvailable && (
+        <>
+          <Header />
+          <ProfileComponent />
+        </>
+      )}
     </div>
   );
 }

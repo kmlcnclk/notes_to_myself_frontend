@@ -10,6 +10,7 @@ import { Button, Dropdown, Space } from 'antd';
 import type { RootState } from '../../src/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { assignUserFirstName } from '../../src/slicers/firstName.slice';
+import { deleteUser } from '@/src/slicers/user.slice';
 
 type menuPropsType = {
   items: MenuProps['items'];
@@ -40,8 +41,9 @@ function MenuComponent() {
   const logoutFunction = async () => {
     await deleteAccessTokenFromLocal();
     await dispatch(assignUserFirstName(''));
-    router.reload();
-    router.push('/');
+    await dispatch(deleteUser());
+
+    router.push('/auth');
   };
 
   const itemsWithoutAccessToken: MenuProps['items'] = [
@@ -78,6 +80,7 @@ function MenuComponent() {
 
   useEffect(() => {
     router.prefetch('/');
+    router.prefetch('/auth');
     router.prefetch('/register');
     router.prefetch('/login');
     router.prefetch('/profile');

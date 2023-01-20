@@ -32,9 +32,19 @@ export const userSlice = createSlice({
     assignUser: (state, action: PayloadAction<UserType>) => {
       state.value = action.payload;
     },
+    deleteUser: (state) => {
+      state.value = {
+        _id: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        createdAt: '',
+        updatedAt: '',
+      };
+    },
   },
 });
 
-export const { assignUser } = userSlice.actions;
+export const { assignUser, deleteUser } = userSlice.actions;
 
 export default userSlice.reducer;
