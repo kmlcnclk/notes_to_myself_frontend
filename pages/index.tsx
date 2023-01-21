@@ -9,7 +9,7 @@ import MenuComponent from '@/components/home/Menu.component';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { assignUser } from '@/src/slicers/user.slice';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { assignUserFirstName } from '@/src/slicers/firstName.slice';
 
 function Home() {
@@ -54,6 +54,7 @@ function Home() {
         <>
           <Header />
           <main>
+            <ToastContainer />
             <MenuComponent />
             <AddNoteComponent />
             <div className="mb-6">

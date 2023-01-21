@@ -11,6 +11,7 @@ const Layout: React.FC<Props> = ({ children }: Props) => {
       <Head>
         <title>Notes to Myself</title>
         <link rel="icon" href="/logo.png" />
+        <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
           content="Take any note for yourself with Notes to Myself"

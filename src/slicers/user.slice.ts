@@ -5,13 +5,19 @@ export interface UserState {
   value: UserType;
 }
 
-type UserType = {
+export type UserType = {
   _id: string;
   email: string;
   firstName: string;
   lastName: string;
   createdAt: string;
   updatedAt: string;
+};
+
+export type UserSomePropertiesType = {
+  email: string;
+  firstName: string;
+  lastName: string;
 };
 
 const initialState: UserState = {
@@ -32,6 +38,14 @@ export const userSlice = createSlice({
     assignUser: (state, action: PayloadAction<UserType>) => {
       state.value = action.payload;
     },
+    assignSomeProperties: (
+      state,
+      action: PayloadAction<UserSomePropertiesType>
+    ) => {
+      state.value.firstName = action.payload.firstName;
+      state.value.lastName = action.payload.lastName;
+      state.value.email = action.payload.email;
+    },
     deleteUser: (state) => {
       state.value = {
         _id: '',
@@ -45,6 +59,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { assignUser, deleteUser } = userSlice.actions;
+export const { assignUser, deleteUser, assignSomeProperties } =
+  userSlice.actions;
 
 export default userSlice.reducer;

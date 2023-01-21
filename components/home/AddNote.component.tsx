@@ -3,7 +3,7 @@ import { Caveat } from '@next/font/google';
 import { Drawer, Space, Button, Form, Input, Checkbox } from 'antd';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { getAccessTokenFromLocal } from '@/localStorage/accessToken.storage';
 
 export type AddNoteFormValuesType = {
@@ -79,7 +79,6 @@ function AddNoteComponent() {
       id="addNote"
       ref={addNote}
     >
-      <ToastContainer />
       <div
         className="w-48 h-8 bg-red-500 flex items-center justify-center rounded-3xl shadow-xl p-5 cursor-pointer hover:scale-105 duration-200"
         onClick={showDrawer}

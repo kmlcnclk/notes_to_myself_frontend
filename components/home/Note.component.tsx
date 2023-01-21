@@ -4,7 +4,7 @@ import { Drawer, Space, Button, Form, Input, Checkbox } from 'antd';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { AddNoteFormValuesType } from './AddNote.component';
 import { getAccessTokenFromLocal } from '@/localStorage/accessToken.storage';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 type NoteComponentProps = {
@@ -82,9 +82,8 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
 
   return (
     <div>
-      <ToastContainer />
       <div className="bg-gray-200 p-7 rounded-xl shadow-xl flex justify-between">
-        <div className='pr-2'>
+        <div className="pr-2">
           <h5 className="font-semibold break-all">{title}</h5>
           <div className="mt-6 break-all">
             <p>{content}</p>
@@ -94,7 +93,7 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
           </div>
         </div>
         <div>
-          <EditFilled  onClick={showDrawer} />
+          <EditFilled onClick={showDrawer} />
           <Drawer
             getContainer={() => addNote.current}
             title="Add Note"
