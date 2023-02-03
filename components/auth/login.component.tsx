@@ -24,7 +24,7 @@ const LoginComponent: React.FC<LoginProps> = ({ router }: LoginProps) => {
 
   const onFinish = (values: LoginFormValuesType) => {
     axios
-      .post('http://localhost:5000/user/login', values)
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/login`, values)
       .then(function (response: any) {
         if (response.data.success) {
           toast.success('Login successful', {

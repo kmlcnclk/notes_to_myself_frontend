@@ -32,7 +32,7 @@ const UpdateUserComponent: React.FC<UpdateUserType> = ({
   const onFinish = (values: any) => {
     axios
       .put(
-        'http://localhost:5000/user/update',
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/update`,
         { firstName, lastName, email, password },
         {
           headers: {

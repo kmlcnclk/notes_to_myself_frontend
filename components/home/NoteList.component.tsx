@@ -16,7 +16,7 @@ function NoteListComponent() {
   useEffect(() => {
     router.prefetch('/auth');
     axios
-      .get('http://localhost:5000/note/getAllNotesByUser', {
+      .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/note/getAllNotesByUser`, {
         headers: {
           Authorization: `Bearer ${getAccessTokenFromLocal()[0]}`,
         },

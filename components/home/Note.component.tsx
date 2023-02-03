@@ -47,7 +47,7 @@ const NoteComponent: React.FC<NoteComponentProps> = ({
   const onFinish = (values: AddNoteFormValuesType) => {
     axios
       .put(
-        `http://localhost:5000/note/update/${d._id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/note/update/${d._id}`,
         { title, content, isCompleted },
         {
           headers: {

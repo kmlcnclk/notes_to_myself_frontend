@@ -17,7 +17,7 @@ function Profile() {
   useEffect(() => {
     router.prefetch('/auth');
     axios
-      .get('http://localhost:5000/user/profile', {
+      .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/profile`, {
         headers: {
           Authorization: `Bearer ${getAccessTokenFromLocal()[0]}`,
         },

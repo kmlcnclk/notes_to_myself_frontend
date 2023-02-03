@@ -28,7 +28,7 @@ const RegisterComponent: React.FC<RegisterProps> = ({
 
   const onFinish = (values: RegisterFormValuesType) => {
     axios
-      .post('http://localhost:5000/user/register', values)
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/register`, values)
       .then(function (response: any) {
         if (response.data.success) {
           toast.success('Register successful', {

@@ -41,7 +41,7 @@ function AddNoteComponent() {
   const onFinish = (values: AddNoteFormValuesType) => {
     axios
       .post(
-        'http://localhost:5000/note/create',
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/note/create`,
         { title, content, isCompleted },
         {
           headers: {
