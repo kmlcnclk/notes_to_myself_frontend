@@ -15,7 +15,7 @@ function Profile() {
   const [isUserAvailable, setIsUserAvailable] = useState(false);
 
   useEffect(() => {
-    router.prefetch('/auth');
+    router.prefetch('/authentication');
     axios
       .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/profile`, {
         headers: {
@@ -35,7 +35,7 @@ function Profile() {
           rtl: false,
           pauseOnHover: false,
         });
-        router.push('/auth');
+        router.push('/authentication');
       });
   }, [router]);
 

@@ -14,7 +14,7 @@ function NoteListComponent() {
   const router = useRouter();
 
   useEffect(() => {
-    router.prefetch('/auth');
+    router.prefetch('/authentication');
     axios
       .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/note/getAllNotesByUser`, {
         headers: {
@@ -26,7 +26,7 @@ function NoteListComponent() {
       })
       .catch(function (error) {
         console.log(error);
-        router.push('/auth');
+        router.push('/authentication');
       });
   }, [router]);
 

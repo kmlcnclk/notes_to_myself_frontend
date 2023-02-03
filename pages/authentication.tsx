@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-function Auth() {
+function Authentication() {
   const router = useRouter();
 
   useEffect(() => {
@@ -29,4 +29,4 @@ function Auth() {
   );
 }
 
-export default Auth;
+export default Authentication;

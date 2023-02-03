@@ -43,7 +43,7 @@ function MenuComponent() {
     await dispatch(assignUserFirstName(''));
     await dispatch(deleteUser());
 
-    router.push('/auth');
+    router.push('/authentication');
   };
 
   const itemsWithoutAccessToken: MenuProps['items'] = [
@@ -80,7 +80,7 @@ function MenuComponent() {
 
   useEffect(() => {
     router.prefetch('/');
-    router.prefetch('/auth');
+    router.prefetch('/authentication');
     router.prefetch('/register');
     router.prefetch('/login');
     router.prefetch('/profile');

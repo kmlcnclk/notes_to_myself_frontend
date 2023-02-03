@@ -25,11 +25,11 @@ function ProfileComponent() {
     await dispatch(assignUserFirstName(''));
     await dispatch(deleteUser());
 
-    router.push('/auth');
+    router.push('/authentication');
   };
 
   useEffect(() => {
-    router.prefetch('/auth');
+    router.prefetch('/authentication');
   }, [router]);
 
   const showDrawer = () => {

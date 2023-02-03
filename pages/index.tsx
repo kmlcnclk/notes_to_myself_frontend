@@ -18,11 +18,11 @@ function Home() {
   const [isAccess, setIsAccess] = useState(false);
 
   useEffect(() => {
-    router.prefetch('/auth');
+    router.prefetch('/authentication');
 
     const accessToken = getAccessTokenFromLocal()[0];
     if (!accessToken) {
-      router.push('/auth');
+      router.push('/authentication');
     } else {
       axios
         .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/profile`, {
