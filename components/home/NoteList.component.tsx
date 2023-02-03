@@ -60,7 +60,7 @@ function NoteListComponent() {
         <div
           className={`text-center text-gray-600 max-md:mt-2 max-md:text-md mt-10 md:text-2xl ${caveat.className}`}
         >
-          You don't have any note...
+          You don&apos;t have any note...
         </div>
       )}
     </div>
