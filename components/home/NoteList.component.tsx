@@ -28,7 +28,7 @@ function NoteListComponent() {
         console.log(error);
         router.push('/auth');
       });
-  }, []);
+  }, [router]);
 
   return (
     <div className="pb-10">

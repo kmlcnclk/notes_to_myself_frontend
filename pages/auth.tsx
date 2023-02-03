@@ -7,7 +7,7 @@ function Auth() {
   useEffect(() => {
     router.prefetch('/register');
     router.prefetch('/login');
-  }, []);
+  }, [router]);
 
   return (
     <div className="h-screen w-full flex items-center justify-center">

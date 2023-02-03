@@ -104,7 +104,7 @@ function MenuComponent() {
       }
     };
     a();
-  }, []);
+  }, [router]);
 
   return (
     <div className="w-full text-center mt-5">

@@ -46,7 +46,7 @@ function Home() {
           });
         });
     }
-  }, []);
+  }, [router]);
 
   return (
     <Layout>

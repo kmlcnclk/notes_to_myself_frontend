@@ -37,7 +37,7 @@ function Profile() {
         });
         router.push('/auth');
       });
-  }, []);
+  }, [router]);
 
   return (
     <div>

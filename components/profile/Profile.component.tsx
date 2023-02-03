@@ -30,7 +30,7 @@ function ProfileComponent() {
 
   useEffect(() => {
     router.prefetch('/auth');
-  }, []);
+  }, [router]);
 
   const showDrawer = () => {
     setOpen(true);
