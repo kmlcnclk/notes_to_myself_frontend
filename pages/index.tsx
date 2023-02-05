@@ -4,7 +4,10 @@ import AddNoteComponent from '../components/home/AddNote.component';
 import NoteListComponent from '@/components/home/NoteList.component';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { getAccessTokenFromLocal } from '../localStorage/accessToken.storage';
+import {
+  getAccessTokenFromLocal,
+  deleteAccessTokenFromLocal,
+} from '../localStorage/accessToken.storage';
 import MenuComponent from '@/components/home/Menu.component';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -44,6 +47,8 @@ function Home() {
             rtl: false,
             pauseOnHover: false,
           });
+          await deleteAccessTokenFromLocal();
+          await router.push('/authentication');
         });
     }
   }, [router]);

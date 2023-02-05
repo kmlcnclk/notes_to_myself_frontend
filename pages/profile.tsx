@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { toast, ToastContainer } from 'react-toastify';
 import Header from '@/components/Header.component';
 import MenuComponent from '@/components/home/Menu.component';
+import Layout from '@/components/Layout';
 
 function Profile() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function Profile() {
   }, [router]);
 
   return (
-    <div>
+    <Layout>
       <ToastContainer />
       {isUserAvailable && (
         <>
@@ -48,7 +49,7 @@ function Profile() {
           <ProfileComponent />
         </>
       )}
-    </div>
+    </Layout>
   );
 }
 

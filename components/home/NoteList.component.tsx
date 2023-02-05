@@ -4,6 +4,7 @@ import axios from 'axios';
 import { getAccessTokenFromLocal } from '@/localStorage/accessToken.storage';
 import { useRouter } from 'next/router';
 import { Caveat } from '@next/font/google';
+import { deleteAccessTokenFromLocal } from '../../localStorage/accessToken.storage';
 
 const caveat = Caveat({
   weight: '700',
@@ -24,8 +25,9 @@ function NoteListComponent() {
       .then(function (response) {
         setData(response.data.notes);
       })
-      .catch(function (error) {
+      .catch(async (error) => {
         console.log(error);
+        await deleteAccessTokenFromLocal();
         router.push('/authentication');
       });
   }, [router]);
